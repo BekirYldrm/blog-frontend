@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import AuthorLogin from './pages/AuthorLogin'
 import AuthorProfile from './pages/AuthorProfile'
 import Authors from './pages/Authors'
@@ -17,23 +17,21 @@ import Layout from './layouts/Layout'
 const App = () => {
   return (
     <Layout>
-      <Router>
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/authors' element={<Authors />} />
-          <Route path='/signup' element={<SignUp />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/blog' element={<Blog />} />
-          <Route path='/user/signup' element={<UserSignUp />} />
-          <Route path='/author/signup' element={<AuthorSignUp />} />
-          <Route path='/user/login' element={<UserLogin />} />
-          <Route path='/author/login' element={<AuthorLogin />} />
-          <Route path='/user/profile' element={<UserProfile />} />
-          <Route path='/author/profile' element={<AuthorProfile />} />
-          <Route path='/create/blog' element={<CreateBlog />} />
-          <Route path='/update/blog' element={<UpdateBlog />} />
-        </Routes>
-      </Router>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/authors' element={<Authors />} />
+        <Route path='/signup' element={<SignUp />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/blog' element={<Blog />} />
+        <Route path='/user/signup' element={<UserSignUp />} />
+        <Route path='/author/signup' element={<AuthorSignUp />} />
+        <Route path='/user/login' element={<UserLogin />} />
+        <Route path='/author/login' element={<AuthorLogin />} />
+        <Route path='/user/profile' element={<UserProfile />} />
+        <Route path='/author/profile' element={<AuthorProfile />} />
+        <Route path='/create/blog' element={<CreateBlog />} />
+        <Route path='/update/blog' element={<UpdateBlog />} />
+      </Routes>
     </Layout>
 
   )

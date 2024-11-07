@@ -1,8 +1,13 @@
-import React from 'react'
+import About from '../components/About'
+import Blogs from '../components/Blogs'
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <>
+      <About />
+      <Blogs />
+    </>
+
   )
 }
 
