@@ -1,7 +1,9 @@
 .container {
   display: flex;
   flex-direction: row;
-  height: 27rem;
+  height: 25rem;
+  margin: 0;
+  padding: 0;
 }
 
 .container > div {
@@ -9,7 +11,8 @@
   margin: 0 1rem;
   background-color: rgb(251, 251, 251);
   padding: 0 1rem;
-  width: 30%;
+  width: 20%;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,10 +29,11 @@
 .rightDiv > div > Button {
   background-color: black;
   margin: 3rem 1rem;
+  padding: 0 1rem;
   font-weight: bold;
   width: 40%;
+  box-sizing: border-box; 
   height: 3rem;
-  padding: 0 1rem;
   font-size: 10px;
 }
 

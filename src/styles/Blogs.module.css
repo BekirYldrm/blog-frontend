@@ -1,6 +1,8 @@
 .container {
+  margin-left: 1rem;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 2rem;
-  width: 100%;
+  gap: 1rem;
+  width: 76%;
+  box-sizing: border-box;
 }

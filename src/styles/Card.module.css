@@ -1,8 +1,8 @@
 .card {
   border-radius: 2rem;
   position: relative;
-  padding: 0;
   width: 100%;
+  box-sizing: border-box;
   height: 25rem;
   display: flex;
   flex-direction: column;
@@ -11,7 +11,7 @@
 }
 
 .card * {
-  margin: 0% 0% 8px 0%;
+  margin: 0 0 8px 0;
 }
 
 .top {
