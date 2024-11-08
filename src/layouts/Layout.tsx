@@ -3,9 +3,9 @@ import Navbar from './Navbar'
 
 const Layout = ({ children }: LayoutProps) => {
     return (
-        <div style={{width:'100%'}}>
+        <div style={{ width: '100%' }}>
             <Navbar />
-            <main style={{margin:"1rem 3rem"}}>{children}</main>
+            <main style={{ margin: "1rem 2rem" }}>{children}</main>
         </div>
     )
 }
