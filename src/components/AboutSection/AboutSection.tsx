@@ -15,7 +15,7 @@ const AboutSection = () => {
             ve eğlenceyi bir araya getirmek. Keyifli okumalar ve katkılarınız için şimdiden teşekkür ederiz!
           </p>
         </div>
-        <img src="/about.png" alt="about" width='60%' />
+        <img src="/about.png" alt="about" width='55%'  />
         <div className={styles.rightDiv}>
           <h1>229</h1>
           <p>Toplam Kullanıcı Sayısı</p>
