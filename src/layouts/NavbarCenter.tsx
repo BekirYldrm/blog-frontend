@@ -11,7 +11,7 @@ const NavbarCenter = () => {
             },
         }} >
             <img
-                src="/public/logo.png" alt="logo"
+                src="/logo.png" alt="logo"
                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             />
         </IconButton>
