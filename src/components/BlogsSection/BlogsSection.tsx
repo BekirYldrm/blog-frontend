@@ -12,7 +12,7 @@ const BlogsSection = () => {
 
   useEffect(() => {
     axios
-      .get('https://blog-backend-y4dr.onrender.com/categories')
+      .get('https://blog-backend-5uhs.onrender.com/categories')
       .then(res => setCatogeries(res.data))
       .catch(e => console.log(e))
   }, [])
