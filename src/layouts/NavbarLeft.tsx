@@ -5,30 +5,30 @@ import { HashLink } from 'react-router-hash-link';
 const NavbarLeft = () => {
     const navigate = useNavigate();
 
-    const navigateToSection = (href: string) => {
-
-        navigate(`/`);
-        window.location.href = href;
-    };
-
     return (
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            <Typography variant="h5" component={HashLink} to="/#about"
+        <Box sx={{ alignItems: "center", display: { xs: 'none', md: 'flex' } }}>
+            <Typography component={HashLink} to="/#about"
                 sx={{
-                    fontWeight: 'bold', mx: 1, textDecoration: 'none',
-                    color: '#535353', padding: '6px 16px', borderRadius: '4px', cursor: 'pointer'
+                    fontWeight: 'bold', textDecoration: 'none', color: '#535353', cursor: 'pointer',
+                    p: { md: '6px', lg: '8px' },
+                    mx: { md: '6px', lg: '8px' },
+                    fontSize: { md: '1rem', lg: '1.5rem' },
                 }}
             > ABOUT </Typography>
-            <Typography variant="h5" component={HashLink} to="/#blogs"
+            <Typography component={HashLink} to="/#blogs"
                 sx={{
-                    fontWeight: 'bold', textDecoration: 'none', color: '#535353',
-                    p: '6px 16px', borderRadius: '4px', cursor: 'pointer', mx: 1
+                    fontWeight: 'bold', textDecoration: 'none', color: '#535353', cursor: 'pointer',
+                    p: { md: '6px', lg: '8px' },
+                    mx: { md: '6px', lg: '8px' },
+                    fontSize: { md: '1rem', lg: '1.5rem' },
                 }}
             > BLOGS </Typography>
-            <Typography variant="h5" component="a" onClick={() => navigate(`/authors`)}
+            <Typography component="a" onClick={() => navigate(`/authors`)}
                 sx={{
-                    fontWeight: 'bold', textDecoration: 'none', color: '#535353',
-                    p: '6px 16px', borderRadius: '4px', cursor: 'pointer', mx: 1
+                    fontWeight: 'bold', textDecoration: 'none', color: '#535353', cursor: 'pointer',
+                    p: { md: '6px', lg: '8px' },
+                    mx: { md: '6px', lg: '8px' },
+                    fontSize: { md: '1rem', lg: '1.5rem' },
                 }}
             > AUTHORS </Typography>
         </Box>

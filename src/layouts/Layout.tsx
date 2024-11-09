@@ -1,11 +1,12 @@
 import { LayoutProps } from '../types/types'
 import Navbar from './Navbar'
+import styles from '/src/styles/Layout.module.css'
 
 const Layout = ({ children }: LayoutProps) => {
     return (
-        <div style={{ width: '100%' }}>
+        <div className={styles.container}>
             <Navbar />
-            <main style={{ margin: "1rem 2rem" }}>{children}</main>
+            <main>{children}</main>
         </div>
     )
 }
