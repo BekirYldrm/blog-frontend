@@ -32,3 +32,21 @@
 .categoryItem:hover {
   background-color: #e0e0e0;
 }
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: row;
+    width: 100%;
+    overflow-x: auto;
+    top: 100px;
+    overflow-y: hidden;
+  }
+
+  .categoryItem {
+    width: auto;
+    min-width: 20%;
+    margin: 1rem;
+    font-size: 0.8em;
+    padding: 0;
+  }
+}
