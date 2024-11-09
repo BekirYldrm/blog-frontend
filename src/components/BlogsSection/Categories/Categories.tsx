@@ -12,7 +12,7 @@ const Categories = ({ categories, clicked }: CategoriesProps) => {
             className={styles.categoryItem}
             key={index}
           >
-            {category.categoryName}
+            <p>{category.categoryName}</p>
           </div>
         ))
       }
