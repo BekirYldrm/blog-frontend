@@ -1,76 +1,59 @@
-import { Box, IconButton, Menu, MenuItem, Tooltip, Typography } from '@mui/material'
+import MenuIcon from '@mui/icons-material/Menu';
+import { Box, IconButton, Menu, MenuItem, Tooltip, Typography } from '@mui/material';
+import { MouseEvent, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
-import MenuIcon from '@mui/icons-material/Menu';
+import { useCategories } from '../hooks/useCategories';
+import { useBlogsContext } from '../context/BlogContext';
+import { Blog } from '../types/types';
+import Categories from '../components/Categories';
 
-interface NavbarMenuProps {
-    handleOpenNavMenu: (event: React.MouseEvent<HTMLElement>) => void
-    anchorElNav: HTMLElement | null
-    handleCloseNavMenu: () => void
-}
-
-const NavbarMenu = ({ handleOpenNavMenu, anchorElNav, handleCloseNavMenu }: NavbarMenuProps) => {
+const NavbarMenu = () => {
     const navigate = useNavigate();
 
+    const { setBlogs } = useBlogsContext();
+    const { fetchCategories, categories, showCategories, setShowCategories } = useCategories()
+    const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
+
+    const handleOpenNavMenu = (event: MouseEvent<HTMLElement>) => setAnchorElNav(event.currentTarget);
+    const handleCloseNavMenu = () => setAnchorElNav(null);
+    function clicked(blogs: Blog[]): void {
+        setBlogs(blogs)
+    }
+
+    const toggleDrawer = () => {
+        setShowCategories(prev => !prev);
+    };
+
     return (
-        <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+        <Box display={{ xs: 'flex', md: 'none' }} flex={1}>
             <Tooltip title='Menu' arrow>
-                <IconButton
-                    size="large"
-                    aria-label="account of current user"
-                    aria-controls="menu-appbar"
-                    aria-haspopup="true"
-                    onClick={handleOpenNavMenu}
-                    color="inherit"
-                    sx={{
-                        width: { xs: '20px', sm: '30px' },
-                        height: { xs: '20px', sm: '30px' }
-                    }}
-                >
-                    <MenuIcon
-                        sx={{
-                            fontSize: { xs: '16px', sm: '20px' },
-                            '&:hover': {
-                                color: 'red'
-                            },
-                        }}
-                    />
-                </IconButton>
+                <IconButton onClick={handleOpenNavMenu} color="inherit" >
+                    <MenuIcon sx={{ fontSize: { xs: 20, sm: 25 } }} /></IconButton>
             </Tooltip>
 
-            <Menu
-                id="menu-appbar"
-                anchorEl={anchorElNav}
-                anchorOrigin={{
-                    vertical: 'bottom',
-                    horizontal: 'left',
-                }}
-                keepMounted
-                transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'left',
-                }}
-                open={Boolean(anchorElNav)}
-                onClose={handleCloseNavMenu}
-                sx={{ display: { xs: 'block', md: 'none' } }}
-            >
-                <MenuItem key="ABOUT" onClick={handleCloseNavMenu}>
-                    <Typography component={HashLink} to="/#about"
-                        sx={{ textDecoration: 'none', color: '#535353' }}
+            <Menu anchorEl={anchorElNav} open={Boolean(anchorElNav)} onClose={handleCloseNavMenu}>
+                <MenuItem onClick={handleCloseNavMenu}>
+                    <Typography component={HashLink} to="/#about" fontSize={{ xs: 12, sm: 14 }}
+                        color='textPrimary' sx={{ textDecoration: 'none' }}
+                    >About</Typography>
+                </MenuItem>
+                <MenuItem onClick={() => { handleCloseNavMenu(); fetchCategories() }}>
+                    <Typography fontSize={{ xs: 12, sm: 14 }} color='textPrimary' sx={{ textDecoration: 'none' }}
+                    > Blogs </Typography>
+                </MenuItem>
+                <MenuItem onClick={() => { handleCloseNavMenu(); navigate(`/authors`) }}>
+                    <Typography fontSize={{ xs: 12, sm: 14 }} color='textPrimary'> Authors </Typography>
+                </MenuItem>
 
-                    > ABOUT </Typography>
-                </MenuItem>
-                <MenuItem key="BLOGS" onClick={handleCloseNavMenu}>
-                    <Typography component={HashLink} to="/#blogs"
-                        sx={{ textDecoration: 'none', color: '#535353' }}
-                    > BLOGS </Typography>
-                </MenuItem>
-                <MenuItem key="AUTHORS" onClick={handleCloseNavMenu}>
-                    <Typography component="a" onClick={() => navigate(`/authors`)}
-                        sx={{ color: '#535353' }}
-                    > AUTHORS </Typography>
+                <MenuItem onClick={handleCloseNavMenu}>
+                    <Typography component={HashLink} to="/#contact" fontSize={{ xs: 12, sm: 14 }}
+                        color='textPrimary' sx={{ textDecoration: 'none' }}
+                    > Contact </Typography>
                 </MenuItem>
             </Menu>
+            {showCategories && <Categories categories={categories} clicked={clicked} toggleDrawer={toggleDrawer} />}
+
         </Box>
     )
 }
