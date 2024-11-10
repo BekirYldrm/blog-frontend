@@ -3,7 +3,7 @@ import ShopIcon from '@mui/icons-material/Shop'
 import AppleIcon from '@mui/icons-material/Apple'
 import styles from '/src/styles/AboutSection.module.css'
 
-const AboutSection = () => {
+const About = () => {
   return (
     <section id='about'>
       <div className={styles.container}>
@@ -15,7 +15,7 @@ const AboutSection = () => {
             ve eğlenceyi bir araya getirmek. Keyifli okumalar ve katkılarınız için şimdiden teşekkür ederiz!
           </p>
         </div>
-        <img src="/about.png" alt="about" width='55%'  />
+        <img src="/about.png" alt="about" width='55%' />
         <div className={styles.rightDiv}>
           <h1>229</h1>
           <p>Toplam Kullanıcı Sayısı</p>
@@ -34,4 +34,4 @@ const AboutSection = () => {
     </section>
   )
 }
-export default AboutSection
+export default About
