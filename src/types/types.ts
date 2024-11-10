@@ -5,8 +5,9 @@ export interface LayoutProps {
 }
 
 export interface CategoriesProps {
-    categories: Array<Category>
-    clicked: (blogs: Blog[]) => void
+    categories: Array<Category>;
+    clicked: (blogs: Blog[]) => void;
+    toggleDrawer: () => void;  
 }
 
 export interface Category {
