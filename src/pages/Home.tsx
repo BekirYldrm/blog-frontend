@@ -1,11 +1,12 @@
-import AboutSection from '../components/AboutSection'
-import BlogsSection from '../components/BlogsSection'
+import About from '../components/About'
+import Blogs from '../components/Blogs'
 
 const Home = () => {
+
   return (
     <>
-      <AboutSection />
-      <BlogsSection />
+      <About />
+      <Blogs />
     </>
   )
 }
