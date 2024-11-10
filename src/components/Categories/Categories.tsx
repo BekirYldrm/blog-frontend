@@ -1,5 +1,5 @@
 import { Box, Drawer, List, ListItem, Typography } from "@mui/material";
-import { Blog, CategoriesProps, Category } from "../../../types/types";
+import { Blog, CategoriesProps, Category } from "../../types/types";
 import { HashLink } from "react-router-hash-link";
 
 const Categories = ({ categories, clicked, toggleDrawer }: CategoriesProps) => {
