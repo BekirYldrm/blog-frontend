@@ -1,11 +1,11 @@
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid2';
-import { useBlogsContext } from '../../context/BlogContext';
+import { useCustomContext } from '../../hooks/useCustomContext.js';
 import { Blog } from '../../types/types';
 import BlogItem from './BlogItem';
 
 const Blogs = () => {
-  const { blogs } = useBlogsContext();
+  const { blogs } = useCustomContext();
 
   return (
     <section id='blogs'>
