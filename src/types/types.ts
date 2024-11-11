@@ -1,5 +1,18 @@
 import { ReactNode } from "react";
 
+export interface ContextType {
+    blogs: Blog[]
+    categories: Category[]
+    showCategories: boolean
+    setBlogs: React.Dispatch<React.SetStateAction<Blog[]>>
+    setCatogeries: React.Dispatch<React.SetStateAction<Category[]>>
+    setShowCategories: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+export interface ContextProviderProps {
+    children: ReactNode;
+}
+
 export interface LayoutProps {
     children: ReactNode
 }
@@ -7,7 +20,7 @@ export interface LayoutProps {
 export interface CategoriesProps {
     categories: Array<Category>;
     clicked: (blogs: Blog[]) => void;
-    toggleDrawer: () => void;  
+    toggleDrawer: () => void;
 }
 
 export interface Category {
