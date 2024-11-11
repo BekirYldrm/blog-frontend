@@ -1,19 +1,19 @@
 import { Box, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { HashLink } from 'react-router-hash-link';
-import Categories from "../components/Categories";
-import { useCategories } from "../hooks/useCategories";
-import { Blog } from "../types/types";
-import { useBlogsContext } from "../context/BlogContext";
+import useCategories from "../../hooks/useCategories";
+import { useCustomContext } from "../../hooks/useCustomContext";
+import { Blog } from "../../types/types";
+import Categories from "../Categories";
 
 const NavbarLeft = () => {
+
     const navigate = useNavigate();
-    const { setBlogs } = useBlogsContext();
+    const { categories, showCategories, setBlogs, setShowCategories } = useCustomContext();
+    const fetchCategories = useCategories()
 
-    const { fetchCategories, categories, showCategories, setShowCategories } = useCategories()
 
-
-    function clicked(blogs: Blog[]): void {
+    const clicked = (blogs: Blog[]): void => {
         setBlogs(blogs)
     }
 
