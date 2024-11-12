@@ -1,26 +1,22 @@
 import { Box, Typography } from "@mui/material";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { HashLink } from 'react-router-hash-link';
-import useCategories from "../../hooks/useCategories";
-import { useCustomContext } from "../../hooks/useCustomContext";
-import { Blog } from "../../types/types";
+import { useFetchData } from "../../hooks/useFetchData";
+import { Category } from "../../types/types";
 import Categories from "../Categories";
 
 const NavbarLeft = () => {
+    const url = 'https://blog-backend-5uhs.onrender.com/categories'
 
     const navigate = useNavigate();
-    const { categories, showCategories, setBlogs, setShowCategories } = useCustomContext();
-    const fetchCategories = useCategories()
+    const [categories, setCategories] = useState<Category[]>([])
+    const [showCategories, setShowCategories] = useState<boolean>(false)
+    const { data: categoryList, fetchData: fetchCategories } = useFetchData<Category[]>(url)
 
+    const toggleDrawer = () => setShowCategories(prev => !prev)
 
-    const clicked = (blogs: Blog[]): void => {
-        setBlogs(blogs)
-    }
-
-    const toggleDrawer = () => {
-        setShowCategories(prev => !prev);
-    };
-
+    useEffect(() => { if (categoryList) { setCategories(categoryList); setShowCategories(true) } }, [categoryList])
 
     return (
         <Box display={{ xs: 'none', md: 'flex' }} alignItems='center' flex={1}>
@@ -38,7 +34,6 @@ const NavbarLeft = () => {
                 sx={{ textDecoration: 'none', cursor: 'pointer' }}
             > BLOGS </Typography>
 
-
             <Typography component="a" onClick={() => navigate(`/authors`)}
                 fontSize={{ md: 14, lg: 20 }} fontWeight='bold'
                 color="warning" mx={{ md: 1, lg: 2 }}
@@ -51,10 +46,9 @@ const NavbarLeft = () => {
                 sx={{ textDecoration: 'none', cursor: 'pointer' }}
             > CONTACT </Typography>
 
-            {showCategories && <Categories categories={categories} clicked={clicked} toggleDrawer={toggleDrawer} />}
-
+            {showCategories && <Categories categories={categories} toggleDrawer={toggleDrawer} />}
+            
         </Box>
     )
 }
-
 export default NavbarLeft

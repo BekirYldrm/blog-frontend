@@ -4,7 +4,7 @@ import { Blog } from '../../types/types';
 
 const BlogItem = ({ blog }: { blog: Blog }) => {
     return (
-        <Card sx={{ maxWidth: 345 }}>
+        <Card  sx={{ maxWidth: 345 , height:'100%'}}>
             <CardHeader
                 avatar={<Avatar sx={{ bgcolor: 'red' }} aria-label="avatar">E</Avatar>}
                 title={blog.title.length > 30 ? blog.title.substring(0, 30) + "..." : blog.title}

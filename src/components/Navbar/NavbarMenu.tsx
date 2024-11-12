@@ -1,35 +1,28 @@
 import MenuIcon from '@mui/icons-material/Menu';
 import { Box, IconButton, Menu, MenuItem, Tooltip, Typography } from '@mui/material';
-import { MouseEvent, useState } from 'react';
+import { MouseEvent, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
-import useCategories from '../../hooks/useCategories';
-import { useCustomContext } from '../../hooks/useCustomContext';
-import { Blog } from '../../types/types';
+import { useFetchData } from '../../hooks/useFetchData';
+import { Category } from '../../types/types';
 import Categories from '../Categories';
 
-
-
-
-
 const NavbarMenu = () => {
+
+    const url = 'https://blog-backend-5uhs.onrender.com/categories'
+
     const navigate = useNavigate();
-    const { categories, showCategories, setBlogs, setShowCategories } = useCustomContext();
-    const fetchCategories = useCategories()
 
-    const clicked = (blogs: Blog[]): void => {
-        setBlogs(blogs)
-    }
-
-    const toggleDrawer = () => {
-        setShowCategories(prev => !prev);
-    };
-
+    const [categories, setCategories] = useState<Category[]>([])
+    const [showCategories, setShowCategories] = useState<boolean>(false)
     const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
+    const { data: categoryList, fetchData: fetchCategories } = useFetchData<Category[]>(url)
 
+    const toggleDrawer = () => setShowCategories(prev => !prev);
     const handleOpenNavMenu = (event: MouseEvent<HTMLElement>) => setAnchorElNav(event.currentTarget);
     const handleCloseNavMenu = () => setAnchorElNav(null);
 
+    useEffect(() => { if (categoryList) { setCategories(categoryList); setShowCategories(true) } }, [categoryList])
 
     return (
         <Box display={{ xs: 'flex', md: 'none' }} flex={1}>
@@ -58,7 +51,7 @@ const NavbarMenu = () => {
                     > Contact </Typography>
                 </MenuItem>
             </Menu>
-            {showCategories && <Categories categories={categories} clicked={clicked} toggleDrawer={toggleDrawer} />}
+            {showCategories && <Categories categories={categories} toggleDrawer={toggleDrawer} />}
 
         </Box>
     )

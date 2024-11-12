@@ -1,4 +1,4 @@
-import Navbar from '../components/Navbar/Navbar';
+import Navbar from '../components/Navbar';
 import { ContextProvider } from '../contexts/ContextProvider';
 import { LayoutProps } from '../types/types';
 
@@ -10,9 +10,7 @@ const Layout = ({ children }: LayoutProps) => {
                 <Navbar />
                 <main>{children}</main>
             </ContextProvider>
-
         </div>
     )
 }
-
 export default Layout

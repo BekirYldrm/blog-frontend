@@ -5,11 +5,9 @@ import { Context } from "./Context";
 export const ContextProvider = ({ children }: ContextProviderProps) => {
 
     const [blogs, setBlogs] = useState<Blog[]>([]);
-    const [categories, setCatogeries] = useState<Category[]>([])
-    const [showCategories, setShowCategories] = useState(false);
 
     return (
-        <Context.Provider value={{ blogs, setBlogs, showCategories, setShowCategories, categories, setCatogeries }}>
+        <Context.Provider value={{ blogs, setBlogs }}>
             {children}
         </Context.Provider>
     );
