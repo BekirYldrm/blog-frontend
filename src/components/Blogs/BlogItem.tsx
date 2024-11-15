@@ -1,10 +1,13 @@
 import { BookmarkAdd, Favorite } from '@mui/icons-material';
 import { Avatar, Box, Card, CardActions, CardContent, CardHeader, CardMedia, IconButton, Typography } from '@mui/material';
-import { Blog } from '../../types/types';
+import { useNavigate } from 'react-router-dom';
+import { BlogType } from '../../types/types';
 
-const BlogItem = ({ blog }: { blog: Blog }) => {
+const BlogItem = ({ blog }: { blog: BlogType }) => {
+    const navigate = useNavigate()
+
     return (
-        <Card  sx={{ maxWidth: 345 , height:'100%'}}>
+        <Card sx={{ maxWidth: 345, height: '100%' }} onClick={() => navigate(`/blog/${blog.id}`)}>
             <CardHeader
                 avatar={<Avatar sx={{ bgcolor: 'red' }} aria-label="avatar">E</Avatar>}
                 title={blog.title.length > 30 ? blog.title.substring(0, 30) + "..." : blog.title}
