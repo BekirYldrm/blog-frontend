@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { HashLink } from "react-router-hash-link";
 import { useCustomContext } from "../../hooks/useCustomContext";
 import { useFetchData } from "../../hooks/useFetchData";
-import { Blog, CategoriesProps, Category } from "../../types/types";
+import { BlogType, CategoriesProps, CategoryType } from "../../types/types";
 
 
 const Categories = ({ categories, toggleDrawer }: CategoriesProps) => {
@@ -11,25 +11,30 @@ const Categories = ({ categories, toggleDrawer }: CategoriesProps) => {
 
   const { setBlogs } = useCustomContext();
 
-  const { data: allBlogs, fetchData: fetchAllBlogs } = useFetchData<Blog[]>(url)
-  const { data: sortedBlogsByDate, fetchData: fetchSortedBlogsByDate } = useFetchData<Blog[]>(url + '?sort=date')
-  const { data: sortedBlogsByPopularity, fetchData: fetchSortedBlogsByPopularity } = useFetchData<Blog[]>(url + '?sort=popularity')
+  const { data: allBlogs, fetchData: fetchAllBlogs } = useFetchData<BlogType[]>(url)
+  const { data: sortedBlogsByDate, fetchData: fetchSortedBlogsByDate } = useFetchData<BlogType[]>(url + '?sort=date')
+  const { data: sortedBlogsByPopularity, fetchData: fetchSortedBlogsByPopularity } = useFetchData<BlogType[]>(url + '?sort=popularity')
 
-  const handleCategoryClick = (blogs: Blog[]) => {
+  const handleCategoryClick = (blogs: BlogType[]) => {
     setBlogs(blogs)
     toggleDrawer()
   }
 
   useEffect(() => {
-    if (allBlogs) {
-      handleCategoryClick(allBlogs)
+
+    try {
+      if (allBlogs) {
+        handleCategoryClick(allBlogs)
+      }
+      else if (sortedBlogsByPopularity) {
+        handleCategoryClick(sortedBlogsByPopularity)
+      }
+      else if (sortedBlogsByDate) {
+        handleCategoryClick(sortedBlogsByDate)
+      }
     }
-    else if (sortedBlogsByPopularity) {
-      handleCategoryClick(sortedBlogsByPopularity)
-    }
-    else if (sortedBlogsByDate) {
-      handleCategoryClick(sortedBlogsByDate)
-    }
+    catch (error) { console.log(error) }
+
   }, [allBlogs, sortedBlogsByPopularity, sortedBlogsByDate])
 
   return (
@@ -50,7 +55,7 @@ const Categories = ({ categories, toggleDrawer }: CategoriesProps) => {
             <Typography>Sort by Date</Typography>
           </ListItem>
 
-          {categories.map((category: Category, index) => (
+          {categories.map((category: CategoryType, index) => (
             <ListItem component={HashLink} to="/#blogs" key={index} onClick={() => handleCategoryClick(category.blogs)}>
               <Typography>{category.categoryName}</Typography>
             </ListItem>

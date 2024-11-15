@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { Blog, Category, ContextProviderProps } from "../types/types";
+import { BlogType, ContextProviderProps } from "../types/types";
 import { Context } from "./Context";
 
 export const ContextProvider = ({ children }: ContextProviderProps) => {
 
-    const [blogs, setBlogs] = useState<Blog[]>([]);
+    const [blogs, setBlogs] = useState<BlogType[]>([]);
 
     return (
         <Context.Provider value={{ blogs, setBlogs }}>

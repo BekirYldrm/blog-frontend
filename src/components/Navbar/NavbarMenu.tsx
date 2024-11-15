@@ -4,7 +4,7 @@ import { MouseEvent, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
 import { useFetchData } from '../../hooks/useFetchData';
-import { Category } from '../../types/types';
+import { CategoryType } from '../../types/types';
 import Categories from '../Categories';
 
 const NavbarMenu = () => {
@@ -13,10 +13,10 @@ const NavbarMenu = () => {
 
     const navigate = useNavigate();
 
-    const [categories, setCategories] = useState<Category[]>([])
+    const [categories, setCategories] = useState<CategoryType[]>([])
     const [showCategories, setShowCategories] = useState<boolean>(false)
     const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
-    const { data: categoryList, fetchData: fetchCategories } = useFetchData<Category[]>(url)
+    const { data: categoryList, fetchData: fetchCategories } = useFetchData<CategoryType[]>(url)
 
     const toggleDrawer = () => setShowCategories(prev => !prev);
     const handleOpenNavMenu = (event: MouseEvent<HTMLElement>) => setAnchorElNav(event.currentTarget);
