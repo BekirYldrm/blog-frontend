@@ -1,8 +1,8 @@
-import React from 'react'
+import Details from "../components/Details"
 
 const Blog = () => {
   return (
-    <div>Blog</div>
+    <Details />
   )
 }
 
