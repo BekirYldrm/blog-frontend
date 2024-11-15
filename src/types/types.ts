@@ -1,8 +1,8 @@
 import { ReactNode } from "react";
 
 export interface ContextType {
-    blogs: Blog[]
-    setBlogs: React.Dispatch<React.SetStateAction<Blog[]>>
+    blogs: BlogType[]
+    setBlogs: React.Dispatch<React.SetStateAction<BlogType[]>>
 }
 
 export interface ContextProviderProps {
@@ -14,28 +14,48 @@ export interface LayoutProps {
 }
 
 export interface CategoriesProps {
-    categories: Array<Category>
+    categories: Array<CategoryType>
     toggleDrawer: () => void
 }
 
-export interface Category {
+export interface CategoryType {
     id: number
     categoryName: string
-    blogs: Array<Blog>
+    blogs: Array<BlogType>
 }
 
-export interface Blog {
+export interface BlogType {
     id: number
     title: string
     content: string
     date: string
     popularity: number
     image: string
-    comments: Array<Comment>
+    comments: Array<CommentType>
 }
 
-export interface Comment {
+export interface CommentType {
     id: number
     comment: string
     rating: number
 }
+
+export interface AuthorType {
+    email: string
+    myBlogs: Array<BlogType>
+    authorDetails: AuthorResDTO
+}
+
+
+export interface AuthorResDTO {
+    id: number
+    firstName: string
+    lastName: string
+    image: string
+}
+
+export interface UserCommentDTO {
+    username: string
+    image: string
+}
+
