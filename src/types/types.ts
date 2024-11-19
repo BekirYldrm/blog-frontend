@@ -42,6 +42,7 @@ export interface CommentType {
 
 export interface AuthorType {
     email: string
+    password: string
     myBlogs: Array<BlogType>
     authorDetails: AuthorResDTO
 }
@@ -52,6 +53,14 @@ export interface AuthorResDTO {
     firstName: string
     lastName: string
     image: string
+}
+
+export interface AuthorCustomDTO {
+    id: number
+    firstName: string
+    lastName: string
+    image: string
+    myBlogs: Array<BlogType>
 }
 
 export interface UserCommentDTO {
