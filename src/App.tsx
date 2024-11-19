@@ -13,6 +13,7 @@ import UserProfile from './pages/UserProfile'
 import UserSignUp from './pages/UserSignUp'
 import Home from './pages/Home'
 import Layout from './layouts/Layout'
+import Author from './pages/Author'
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/authors' element={<Authors />} />
+        <Route path='/author/:id' element={<Author />} />
         <Route path='/signup' element={<SignUp />} />
         <Route path='/login' element={<Login />} />
         <Route path='/blog/:id' element={<Blog />} />
