@@ -1,15 +1,24 @@
 import { BookmarkAdd, Favorite } from '@mui/icons-material';
-import { Avatar, Box, Card, CardActions, CardContent, CardHeader, CardMedia, IconButton, Typography } from '@mui/material';
+import { Avatar, Box, Card, CardActions, CardContent, CardHeader, CardMedia, IconButton, Tooltip, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import { BlogType } from '../../types/types';
+import { AuthorResDTO, BlogType } from '../../types/types';
+import { useFetchDataWithEffect } from '../../hooks/useFetchDataWithEffect';
 
 const BlogItem = ({ blog }: { blog: BlogType }) => {
+
+    const url = `https://blog-backend-5uhs.onrender.com/authors/blog/${blog.id}`
+    const { data: author } = useFetchDataWithEffect<AuthorResDTO>(url)
     const navigate = useNavigate()
 
     return (
         <Card sx={{ maxWidth: 345, height: '100%' }} onClick={() => navigate(`/blog/${blog.id}`)}>
             <CardHeader
-                avatar={<Avatar sx={{ bgcolor: 'red' }} aria-label="avatar">E</Avatar>}
+                avatar={
+                    <Tooltip arrow title={author?.firstName + " " + author?.lastName}>
+                        <Avatar sx={{ bgcolor: 'red' }} aria-label="avatar" src={author?.image} />
+
+                    </Tooltip>
+                }
                 title={blog.title.length > 30 ? blog.title.substring(0, 30) + "..." : blog.title}
                 subheader={blog.date.replace("T", " ")}
             />
@@ -44,3 +53,8 @@ const BlogItem = ({ blog }: { blog: BlogType }) => {
 }
 
 export default BlogItem;
+function useParams(): { id: any; } {
+    throw new Error('Function not implemented.');
+}
+
+
