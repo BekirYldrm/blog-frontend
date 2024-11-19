@@ -1,8 +1,8 @@
-import React from 'react'
+import AuthorList from "../components/AuthorList"
 
 const Authors = () => {
   return (
-    <div>Authors</div>
+    <AuthorList />
   )
 }
 
