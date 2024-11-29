@@ -9,7 +9,7 @@ import Categories from '../Categories';
 
 const NavbarMenu = () => {
 
-    const url = 'https://blog-backend-5uhs.onrender.com/categories'
+    const url = '/categories'
 
     const navigate = useNavigate();
 

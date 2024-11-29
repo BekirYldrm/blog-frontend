@@ -7,7 +7,7 @@ import { CategoryType } from "../../types/types";
 import Categories from "../Categories";
 
 const NavbarLeft = () => {
-    const url = 'https://blog-backend-5uhs.onrender.com/categories'
+    const url = '/categories'
 
     const navigate = useNavigate();
     const [categories, setCategories] = useState<CategoryType[]>([])
