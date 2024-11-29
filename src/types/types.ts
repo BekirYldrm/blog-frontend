@@ -44,7 +44,10 @@ export interface AuthorType {
     email: string
     password: string
     myBlogs: Array<BlogType>
-    authorDetails: AuthorResDTO
+    id: number
+    firstName: string
+    lastName: string
+    image: string
 }
 
 
@@ -66,5 +69,36 @@ export interface AuthorCustomDTO {
 export interface UserCommentDTO {
     username: string
     image: string
+}
+export interface UserProfileDTO {
+    id: number
+    username: string
+    image: string
+}
+
+export interface UserType {
+    id: number
+    username: string
+    password: string
+    email: string
+    image: string
+    savedBlogs: SaveType[]
+    likedBlogs: LikedType[]
+    comments: CommentType[]
+}
+
+export interface RoleType {
+    id: number
+    roleName: string
+    users: UserType[]
+    authors: AuthorType[]
+}
+
+export interface SaveType {
+    id: number
+}
+
+export interface LikedType {
+    id: number
 }
 
