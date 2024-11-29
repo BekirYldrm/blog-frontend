@@ -1,8 +1,9 @@
-import React from 'react'
+
+import UserForm from '../components/Login/UserForm'
 
 const UserLogin = () => {
   return (
-    <div>UserLogin</div>
+    <UserForm />
   )
 }
 

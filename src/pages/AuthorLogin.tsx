@@ -1,8 +1,9 @@
 import React from 'react'
+import AuthorForm from '../components/Login/AuthorForm'
 
 const AuthorLogin = () => {
   return (
-    <div>AuthorLogin</div>
+    <AuthorForm />
   )
 }
 

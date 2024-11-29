@@ -1,8 +1,8 @@
-import React from 'react'
+import RoleSelection from '../components/RoleSelection'
 
 const Login = () => {
   return (
-    <div>Login</div>
+    <RoleSelection operation='login' />
   )
 }
 
