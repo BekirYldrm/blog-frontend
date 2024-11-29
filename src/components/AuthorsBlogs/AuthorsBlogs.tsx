@@ -6,7 +6,7 @@ import BlogItem from "../Blogs/BlogItem"
 
 const AuthorsBlogs = () => {
     const { id } = useParams()
-    const url = `https://blog-backend-5uhs.onrender.com/authors/${id}`
+    const url = `/authors/${id}`
     const { data: author } = useFetchDataWithEffect<AuthorCustomDTO>(url)
 
     return (

@@ -7,7 +7,7 @@ import { BlogType, CategoriesProps, CategoryType } from "../../types/types";
 
 
 const Categories = ({ categories, toggleDrawer }: CategoriesProps) => {
-  const url = 'https://blog-backend-5uhs.onrender.com/blogs'
+  const url = '/blogs'
 
   const { setBlogs } = useCustomContext();
 

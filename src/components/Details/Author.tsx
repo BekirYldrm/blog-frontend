@@ -6,7 +6,7 @@ import { AuthorResDTO } from '../../types/types'
 const Author = () => {
 
     const { id } = useParams()
-    const url = `https://blog-backend-5uhs.onrender.com/authors/blog/${id}`
+    const url = `/authors/blog/${id}`
     const { data: author } = useFetchDataWithEffect<AuthorResDTO>(url)
     const navigate = useNavigate()
 

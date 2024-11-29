@@ -6,7 +6,7 @@ import SearchForm from "./SearchForm"
 
 const AuthorList = () => {
 
-    const url = `https://blog-backend-5uhs.onrender.com/authors`
+    const url = `/authors`
     const { data: authorList } = useFetchDataWithEffect<AuthorResDTO[]>(url)
 
     return (

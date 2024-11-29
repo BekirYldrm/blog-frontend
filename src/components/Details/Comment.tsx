@@ -5,7 +5,7 @@ import { CommentType, UserCommentDTO } from "../../types/types";
 
 const Comment = ({ comment }: { comment: CommentType }) => {
 
-    const url = `https://blog-backend-5uhs.onrender.com/users/comment/${comment.id}`
+    const url = `/users/comment/${comment.id}`
     const { data: user } = useFetchDataWithEffect<UserCommentDTO>(url)
     const username = user?.username;
     const image = user?.image;

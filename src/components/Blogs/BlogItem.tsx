@@ -6,7 +6,7 @@ import { useFetchDataWithEffect } from '../../hooks/useFetchDataWithEffect';
 
 const BlogItem = ({ blog }: { blog: BlogType }) => {
 
-    const url = `https://blog-backend-5uhs.onrender.com/authors/blog/${blog.id}`
+    const url = `/authors/blog/${blog.id}`
     const { data: author } = useFetchDataWithEffect<AuthorResDTO>(url)
     const navigate = useNavigate()
 

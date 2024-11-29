@@ -9,7 +9,7 @@ import Comments from './Comments';
 const ReadingArea = () => {
 
     const { id } = useParams()
-    const url = `https://blog-backend-5uhs.onrender.com/blogs/${id}`
+    const url = `/blogs/${id}`
     const { data: blog } = useFetchDataWithEffect<BlogType>(url)
 
 
