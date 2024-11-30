@@ -1,12 +1,5 @@
 import { Button, Grid2, TextField } from "@mui/material";
-import { ChangeEvent } from "react";
-
-interface ProfilePasswordProps {
-    password: string
-    passwordChanged: boolean
-    handlePasswordChange: (e: ChangeEvent<HTMLInputElement>) => void
-    handleSavePassword: (e: React.FormEvent) => void
-}
+import { ProfilePasswordProps } from "../../types/types";
 
 const ProfilePassword = ({ password, passwordChanged, handlePasswordChange, handleSavePassword }: ProfilePasswordProps) => {
     return (

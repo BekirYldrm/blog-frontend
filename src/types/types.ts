@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ChangeEvent, ReactNode } from "react";
 
 export interface ContextType {
     blogs: BlogType[]
@@ -17,6 +17,37 @@ export interface CategoriesProps {
     categories: Array<CategoryType>
     toggleDrawer: () => void
 }
+
+export interface ProfilePasswordProps {
+    password: string
+    passwordChanged: boolean
+    handlePasswordChange: (e: ChangeEvent<HTMLInputElement>) => void
+    handleSavePassword: (e: React.FormEvent) => void
+}
+
+export interface ProfileNameProps {
+    author: AuthorType | null;
+}
+
+export interface ProfileAvatarProps {
+    author: AuthorType | null;
+}
+
+export interface ProfileImageProps {
+    image: string;
+    imageChanged: boolean;
+    handleImageChange: (e: ChangeEvent<HTMLInputElement>) => void;
+    handleSaveImage: (e: React.FormEvent) => void;
+}
+
+export interface ProfileEmailProps {
+    email: string;
+    emailChanged: boolean;
+    handleEmailChange: (e: ChangeEvent<HTMLInputElement>) => void;
+    handleSaveEmail: (e: React.FormEvent) => void;
+}
+
+
 
 export interface CategoryType {
     id: number

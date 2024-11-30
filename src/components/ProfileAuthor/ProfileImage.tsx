@@ -1,12 +1,6 @@
 import { Button, Grid2, TextField } from "@mui/material";
-import { ChangeEvent } from "react";
+import { ProfileImageProps } from "../../types/types";
 
-interface ProfileImageProps {
-    image: string;
-    imageChanged: boolean;
-    handleImageChange: (e: ChangeEvent<HTMLInputElement>) => void;
-    handleSaveImage: (e: React.FormEvent) => void;
-}
 
 const ProfileImage = ({ image, imageChanged, handleImageChange, handleSaveImage }: ProfileImageProps) => {
     return (

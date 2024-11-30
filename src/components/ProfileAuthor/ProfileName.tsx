@@ -1,9 +1,7 @@
 import { Grid2, TextField } from "@mui/material";
-import { AuthorType } from "../../types/types";
+import { ProfileNameProps } from "../../types/types";
 
-interface ProfileNameProps {
-    author: AuthorType | null;
-}
+
 
 const ProfileName = ({ author }: ProfileNameProps) => {
     return (

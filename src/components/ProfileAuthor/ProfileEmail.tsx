@@ -1,12 +1,5 @@
 import { Button, Grid2, TextField } from "@mui/material";
-import { ChangeEvent } from "react";
-
-interface ProfileEmailProps {
-    email: string;
-    emailChanged: boolean;
-    handleEmailChange: (e: ChangeEvent<HTMLInputElement>) => void;
-    handleSaveEmail: (e: React.FormEvent) => void;
-}
+import { ProfileEmailProps } from "../../types/types";
 
 const ProfileEmail = ({ email, emailChanged, handleEmailChange, handleSaveEmail }: ProfileEmailProps) => {
     return (

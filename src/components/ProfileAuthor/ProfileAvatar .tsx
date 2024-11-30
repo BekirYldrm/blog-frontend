@@ -1,9 +1,5 @@
 import { Avatar } from "@mui/material";
-import { AuthorType } from "../../types/types";
-
-interface ProfileAvatarProps {
-    author: AuthorType | null;
-}
+import { ProfileAvatarProps } from "../../types/types";
 
 const ProfileAvatar = ({ author }: ProfileAvatarProps) => {
     return (

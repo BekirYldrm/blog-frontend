@@ -68,6 +68,9 @@ const ProfileAuthor = () => {
     useEffect(() => {
         if (errorMessage) {
             alert(errorMessage)
+            setEmail(author!.email)
+            setPassword(author!.password)
+            setImage(author!.image)
         }
     }, [errorMessage])
 
