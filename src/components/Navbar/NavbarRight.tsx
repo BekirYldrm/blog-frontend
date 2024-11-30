@@ -111,7 +111,7 @@ const NavbarRight = () => {
                             <MenuItem
                                 onClick={() => {
                                     handleCloseUserMenu()
-                                    role == "user" ? navigate("/user/profile") : navigate("/author/profile")
+                                    role == "user" ? navigate("/user/profile", { state: userProfile?.id }) : navigate("/author/profile", { state: authorProfile?.id })
                                 }}
                             >
                                 <Typography fontSize={{ xs: 12, sm: 14, md: 16, lg: 18 }}>
