@@ -1,8 +1,8 @@
-import React from 'react'
+import ProfileAuthor from '../components/ProfileAuthor'
 
 const AuthorProfile = () => {
   return (
-    <div>AuthorProfile</div>
+    <ProfileAuthor />
   )
 }
 
