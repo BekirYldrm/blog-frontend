@@ -1,5 +1,5 @@
 import { Button, Grid2, TextField, Typography } from "@mui/material";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { usePostData } from "../../hooks/usePostData";
 import { UserType } from "../../types/types";
 import { useNavigate } from "react-router-dom";
@@ -12,18 +12,22 @@ const UserForm = () => {
     const [password, setPassword] = useState<string>("");
     const [email, setEmail] = useState<string>("");
 
-
     const { data, post } = usePostData<UserType>()
-
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         const url = '/users'
         const body = { username, password, email }
         await post(url, body)
-        alert("Kayit Basarili Giris Sayfasina Yonlediriliyorsunuz ...")
-        navigate('/user/login')
-    };
+
+    }
+
+    useEffect(() => {
+        if (data) {
+            alert("Kayit Basarili Giris Sayfasina Yonlediriliyorsunuz ...")
+            navigate('/user/login')
+        }
+    }, [data])
 
     return (
         <Grid2 container justifyContent='center' mt={5}>
