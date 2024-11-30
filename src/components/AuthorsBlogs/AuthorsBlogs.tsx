@@ -13,7 +13,7 @@ const AuthorsBlogs = () => {
         <Grid2 container>
             {author ? (
 
-                <Grid2 container p={2} >
+                <Grid2 container size={12} p={2} >
 
                     {author.myBlogs.length > 0 ? author.myBlogs.map((blog: BlogType, index) => (
                         <Grid2 justifyContent='center' container size={{ xs: 12, sm: 6, md: 4, lg: 3 }} p={2} key={index}>
