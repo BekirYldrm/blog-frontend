@@ -6,21 +6,18 @@ export function useFetchPrivateData<T>(url: string, token: string) {
 
     useEffect(() => {
 
-        if (!token) {
-            setData(null)
-            return
-        }
-
-        const fetchData = async () => {
-            try {
-                const data: T = await getPrivateData<T>(url, token)
-                setData(data)
-            } catch (error) {
-                console.log(error)
+        if (token) {
+            const fetchData = async () => {
+                try {
+                    const data: T = await getPrivateData<T>(url, token)
+                    setData(data)
+                } catch (error) {
+                    console.log(error)
+                }
             }
-        }
 
-        fetchData()
+            fetchData()
+        }
     }, [url, token])
 
     return { data }
