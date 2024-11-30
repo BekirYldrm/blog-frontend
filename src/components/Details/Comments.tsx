@@ -12,7 +12,7 @@ const Comments = ({ comments }: { comments: CommentType[] }) => {
             ))
             :
             <Typography variant="h6" color="text.secondary" textAlign="center" fontWeight="bold">
-                <span style={{ marginRight: '8px' }}>🚫</span> Yorum Yok
+                <span>🚫</span> Yorum Yok
             </Typography>
     )
 }

@@ -11,7 +11,7 @@ const BlogItem = ({ blog }: { blog: BlogType }) => {
     const navigate = useNavigate()
 
     return (
-        <Card sx={{ maxWidth: 345, height: '100%' }} onClick={() => navigate(`/blog/${blog.id}`)}>
+        <Card sx={{ width: '100%', height: '100%' }} onClick={() => navigate(`/blog/${blog.id}`)}>
             <CardHeader
                 avatar={
                     <Tooltip arrow title={author?.firstName + " " + author?.lastName}>
@@ -29,8 +29,17 @@ const BlogItem = ({ blog }: { blog: BlogType }) => {
                 alt="Blog Image"
             />
             <CardContent>
-                <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                    {blog.content.substring(0, 120) + "..."}
+                <Typography variant="body2"
+                    sx={{
+                        color: 'text.secondary',
+                        whiteSpace: 'normal',
+                        wordBreak: 'break-word',
+                        overflow: 'hidden',
+                        display: 'block',
+                        textOverflow: 'ellipsis'
+                    }}
+                >
+                    {blog.content.length > 100 ? blog.content.substring(0, 100) + "..." : blog.content}
                 </Typography>
             </CardContent>
             <CardActions disableSpacing>

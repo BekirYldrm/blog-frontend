@@ -15,8 +15,8 @@ const NavbarCenter = () => {
                     }}
                 >
                     <Box src="/logo.png" alt="logo" component='img'
-                        width={{ xs: 20, sm: 30, md: 40, lg: 50 }}
-                        height={{ xs: 20, sm: 30, md: 40, lg: 50 }}
+                        width={{ xs: 30, sm: 40, md: 50, lg: 60 }}
+                        height={{ xs: 30, sm: 40, md: 50, lg: 60 }}
                     />
                 </IconButton>
             </Tooltip>

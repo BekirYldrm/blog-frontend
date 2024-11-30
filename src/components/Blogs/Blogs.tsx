@@ -13,9 +13,9 @@ const Blogs = () => {
       <Grid container>
         {blogs.map((blog: BlogType, index) => (
           <Grid justifyContent='center' container size={{ xs: 12, sm: 6, md: 4, lg: 3 }} p={2} key={index}>
-            <Box>
-              <BlogItem blog={blog} />
-            </Box>
+
+            <BlogItem blog={blog} />
+
           </Grid>
         ))}
 

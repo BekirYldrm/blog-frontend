@@ -7,7 +7,7 @@ import Author from "./Author"
 
 const Blog = ({ blog }: { blog: BlogType }) => {
     return (
-        <Card>
+        <Card sx={{ width: '100%' }}>
             <Box borderBottom={2}>
                 <CardActions sx={{ display: "flex", justifyContent: "space-between", p: 1 }}>
                     <IconButton aria-label="save">

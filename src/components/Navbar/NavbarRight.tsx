@@ -68,7 +68,7 @@ const NavbarRight = () => {
                     &&
                     <Tooltip title="create a blog" arrow>
                         <IconButton
-                            onClick={() => navigate("/create/blog")}
+                            onClick={() => navigate("/create/blog", { state: authorProfile?.id })}
                             sx={{
                                 borderRadius: "50%",
                                 width: { xs: 25, sm: 30, md: 35, lg: 40 },
@@ -94,8 +94,8 @@ const NavbarRight = () => {
                         onClick={handleOpenUserMenu}
                         sx={{
                             p: 0,
-                            width: { xs: 40, sm: 50, md: 60, lg: 70 },
-                            height: { xs: 40, sm: 50, md: 60, lg: 70 }
+                            width: { xs: 30, sm: 40, md: 50, lg: 60 },
+                            height: { xs: 30, sm: 40, md: 50, lg: 60 }
                         }}
                     >
                         <Avatar
