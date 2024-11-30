@@ -34,6 +34,14 @@ export interface BlogType {
     comments: Array<CommentType>
 }
 
+export interface BlogPostType {
+    title: string
+    content: string
+    image: string
+    authorId: number
+    categoryId: number
+}
+
 export interface CommentType {
     id: number
     comment: string
