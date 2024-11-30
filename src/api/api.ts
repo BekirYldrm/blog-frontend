@@ -13,6 +13,20 @@ export async function getData<T>(url: string): Promise<T> {
     }
 }
 
+export async function getPrivateData<T>(url: string, token: string): Promise<T> {
+    try {
+        const response: AxiosResponse<T> = await api.get(url, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "application/json",
+            }
+        })
+        return response.data;
+    } catch (error) {
+        throw new Error('Failed to fetch data');
+    }
+}
+
 export async function postData<T>(url: string, data: any): Promise<T> {
     try {
         const response: AxiosResponse<T> = await api.post(url, data);
@@ -22,17 +36,16 @@ export async function postData<T>(url: string, data: any): Promise<T> {
     }
 }
 
-export async function getPrivateData<T>(url: string, token: string): Promise<T> {
+export async function postPrivateData<TRes, TReq>(url: string, data: TReq, token: string): Promise<TRes> {
     try {
-        const response: AxiosResponse<T> = await api.get(url, {
+        const response: AxiosResponse<TRes> = await api.post(url, data, {
             headers: {
                 Authorization: `Bearer ${token}`,
                 "Content-Type": "application/json",
-            },
-
-        });
-        return response.data;
+            }
+        })
+        return response.data
     } catch (error) {
-        throw new Error('Failed to fetch data');
+        throw new Error('Failed to post data');
     }
 }
