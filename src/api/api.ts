@@ -49,3 +49,16 @@ export async function postPrivateData<TRes, TReq>(url: string, data: TReq, token
         throw new Error('Failed to post data');
     }
 }
+
+export async function patchPrivateData(url: string, token: string): Promise<void> {
+    try {
+        await api.patch(url, null, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "application/json",
+            }
+        })
+    } catch (error: any) {
+        throw error
+    }
+}
