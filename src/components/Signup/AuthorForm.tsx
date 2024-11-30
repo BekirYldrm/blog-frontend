@@ -1,16 +1,32 @@
 import { Button, Grid2, TextField, Typography } from "@mui/material";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { usePostData } from "../../hooks/usePostData";
+import { AuthorType } from "../../types/types";
 
 const AuthorForm = () => {
+
+    const navigate = useNavigate()
 
     const [firstName, setFirstName] = useState<string>("");
     const [lastName, setLastName] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const [email, setEmail] = useState<string>("");
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const { data, post } = usePostData<AuthorType>()
+
+    useEffect(() => {
+        if (data) {
+            alert("Kayit Basarili Giris Sayfasina Yonlediriliyorsunuz ...")
+            navigate('/author/login')
+        }
+    }, [data])
+
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        console.log(firstName + lastName + password + email);
+        const url = '/authors'
+        const body = { firstName, lastName, password, email }
+        await post(url, body)
     };
 
     return (
